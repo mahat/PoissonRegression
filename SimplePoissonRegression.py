@@ -1,17 +1,16 @@
 '''
 Author: mahat
 '''
+'''
+Author: mahat
+'''
 
 import pandas as pd
 import statsmodels.api as sm
 import numpy as np
 import matplotlib.pyplot as plt
 
-# read data
-from statsmodels.genmod.families import Poisson
-from statsmodels.genmod.cov_struct import Independence
-from statsmodels.genmod.generalized_estimating_equations import GEE
-
+#read data
 data = pd.read_csv('./data/StudentData.csv', delimiter=',',header=0)
 
 print '----- data head -----'
@@ -42,14 +41,17 @@ print dataWithDummies.head()
 # assuming variables are independent to each other
 feat_cols = ['math', 'prog_1', 'prog_2']
 X = [elem for elem in dataWithDummies[feat_cols].values]
+# adding costant to adding bias
 X = sm.add_constant(X, prepend=False)
 Y = [elem for elem in dataWithDummies['num_awards'].values]
 
+# building the model
 poisson_mod = sm.Poisson(Y, X)
 poisson_res = poisson_mod.fit(method="newton")
 print(poisson_res.summary())
 
 
+# testing the model
 predVals = poisson_res.predict(X)
 
 plt.plot(range(len(Y)), Y, 'r*-', range(len(Y)), predVals, 'bo-')
