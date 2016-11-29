@@ -37,11 +37,11 @@ dataWithDummies = dataWithDummies .applymap(np.int)
 
 print dataWithDummies.head()
 
-# applying possion regression on data
+# applying poisson regression on data
 # assuming variables are independent to each other
 feat_cols = ['math', 'prog_1', 'prog_2']
 X = [elem for elem in dataWithDummies[feat_cols].values]
-# adding costant to adding bias
+# adding constant to adding bias
 X = sm.add_constant(X, prepend=False)
 Y = [elem for elem in dataWithDummies['num_awards'].values]
 

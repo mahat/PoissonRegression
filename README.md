@@ -1,5 +1,5 @@
 # PoissonRegression
-Poisson Regression Example in Python
+Poisson Regression Examples in Python
 
 # Simple Logistic Regression
 - Conducting simple poisson regression on Student Data
