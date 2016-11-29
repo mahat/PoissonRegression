@@ -19,6 +19,9 @@ print data.describe()
 
 # plotting hour vs count data
 plt.plot(data['hour'], data['count'], 'o')
+plt.title('Visitor counts vs hour')
+plt.xlabel('Hour')
+plt.ylabel('Visitor Count')
 plt.show()
 
 # in data hours are incremented in everyday
@@ -35,11 +38,11 @@ width = 1 / 1.5
 plt.bar(range(1, 25), totalVisit, width, color="blue")
 plt.ylabel('Mean Count of Visitors')
 plt.xlabel('Hour of the day')
-plt.title('Bar chart for hourly means of data')
+plt.title('Histogram')
 plt.show()
 
 # from the bar chart, it can be said that there is a cycle
-# we can convert hour data into frequency domain
+# we can convert hour data into frequency domain therefore we can handle cycles
 data['w'] = data['hour'].apply(lambda h: (float(h) / 24) * 2 * pi)
 # conversion to frequency domain
 data['fdomain'] = data['w'].apply(lambda w: sin(w) + cos(w) + sin(2*w) + cos(2*w))
