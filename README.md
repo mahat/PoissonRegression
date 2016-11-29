@@ -13,3 +13,6 @@ Poisson Regression Examples in Python
 - Conducting simple poisson regression with one independent data
 - Plotting data and results
 
+#Running Cde
+- Code is written in Python 2.7.12
+- Numpy, Pandas, Statsmodels, Matplotlib libraries are used
